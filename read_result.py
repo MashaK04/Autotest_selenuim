@@ -1,11 +1,10 @@
-
 import pendulum
 import glob
 import json
 import os
 
 # Поиск нужного json файла с результатами
-pattern = '../allure-results/*-result.json'
+pattern = 'allure-results/*-result.json'
 result_files = glob.glob(pattern)
 
 if not result_files:
@@ -63,7 +62,7 @@ else:
             result_text += f"- {attachment['name']} (тип: {attachment['type']}, источник: {attachment['source']})\n"
 
     # Сохранение данных в текстовый файл
-    with open('Результаты_теста.txt', 'w', encoding='utf-8') as file:
+    with open('tests/Результаты_теста.txt', 'w', encoding='utf-8') as file:
             file.write(result_text.strip())
 
     print("Отчет создан!")
